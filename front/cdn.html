@@ -1,0 +1,852 @@
+<html>
+  <head>
+    <title>CDNEngine - DNS Result</title>
+    <!-- Styles -->
+    <style>
+    .textContainer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    
+    #buttonControlContainer{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #chartdiv {
+      
+      width: 100%;
+      height: 100%;
+    }
+    #chartdiv2 {
+      width: 100%;
+      height: 600px
+    }
+    body{
+      
+    }
+    #title{
+      margin-top: 50px;
+      margin-bottom: 30px;
+      margin-left:10px;
+      margin-right: 10px;
+      margin: 60px 10px;
+      display:flex;
+      justify-content: center;
+      text-align: center;
+    }
+    #title>h1{
+      padding:auto;
+    }
+    #continentBriefContainer{
+      display:flex;
+      justify-content: center;
+    }
+    .continentBrief{
+      margin-right:10px;
+    }
+    .continentContainer {
+      padding: 10px 10px;
+      
+      margin: 0 10px;
+      
+      display: block;
+      
+      border: 1px solid #efefef;
+      border-bottom: none;
+    }
+    .continentContainer:last-child {
+      border-bottom:1px-solid #efefef;
+    }
+    #container{
+      display:flex;
+      flex-direction: row-reverse;
+    }
+    #mapContainer{
+      padding: 10px 10px;
+      background-color: #eee;
+      margin: 10px 10px;
+      width:100%;
+    }
+
+    #parameters{
+      padding: 10px 10px;
+      background-color: #eee;
+      margin: 10px 10px;
+      display:flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      width:250px;
+    }
+    .text-center{
+      text-align: center;
+    }
+    #radioControlContainer{
+      margin-bottom:10px;
+    }
+    #gridData,#sendBatchAll{
+      width:100%;
+    }
+    #triggerContainer{
+      margin-top:20px;
+      margin-bottom:10px;
+    }
+
+    .subContinentContainer{
+      padding: 10px 10px;
+      background-color: #eee;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .countryContainer{
+      display:block;
+      float:left;
+      margin-left:5px;
+      margin-right:10px;
+    }
+    .countryContainer:nth-child(5n + 1){
+      clear:both;
+    }
+    #checkboxControlContainer{
+      margin-left:10px;
+    }
+    #triggerContainer{
+      display:block;
+      float:right;
+      margin-right:10px;
+      
+    }
+
+    #gridContainer{
+      margin-top:15px;
+    }
+
+    #gridRefresh{
+      display: block;
+    }
+
+    .tooltipTable{
+      border: 1px solid #efefef;
+      font-size: 10px;
+      width: 100%;
+      border-collapse: collapse;
+      
+    }
+
+    
+
+    .aRecord{
+      text-align: center;
+      border: 1px solid #efefef;
+      
+    }
+
+    .count{
+      text-align: right;
+      border: 1px solid #efefef;
+    }
+    </style>
+    <!-- jquery -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
+
+    <!-- amchart Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    
+    
+    <!-- jsgrid Chart code -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+
+    <!-- react CDN -->
+    <!--<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel -->
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+    
+    <!-- jQuery UI-->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css" />
+    <!-- bootstrap -->
+    <script
+      src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+      crossorigin></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+      />
+    
+    <!-- grid.js -->
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
+    <script>
+    
+      function putData(data) {
+        bubbleSeries.data.setAll(data);
+      }
+
+      var timer = null;
+      var gridContent = null;
+      var sessionId = null;
+
+      function setCookie(name,value,days) {
+          var expires = "";
+          if (days) {
+              var date = new Date();
+              date.setTime(date.getTime() + (days*24*60*60*1000));
+              expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+      }
+      function getCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for(var i=0;i < ca.length;i++) {
+              var c = ca[i];
+              while (c.charAt(0)==' ') c = c.substring(1,c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+          }
+          return null;
+      }
+      function eraseCookie(name) {   
+          document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      }
+
+      function getSessionId(){
+        let storedSession = getCookie("sessionId");
+        if(typeof storedSession == 'undefined' || storedSession == 'undefined' || storedSession == ''){
+          storedSession = new Date().getTime() + (Math.random() + 1).toString(36).substring(7);
+          setCookie("sessionId", storedSession, 7);
+          console.log(`stored new sessionId:${storedSession}`);
+        }
+        else{
+          console.log(`get sessionId from cookie:${storedSession}`);
+        }
+        sessionId = storedSession;
+        return storedSession;
+      }
+
+      function updateSessionId(){
+        eraseCookie("sessionId");
+        let storedSession = new Date().getTime() + (Math.random() + 1).toString(36).substring(7);
+        setCookie("sessionId", storedSession, 7);
+        sessionId = storedSession;
+        console.log(`updated sessionId:${storedSession}`);
+      }
+
+      $(document).ready(function(){
+        sessionId = getSessionId();
+        var root = am5.Root.new("chartdiv");
+        root.setThemes([am5themes_Animated.new(root)]);
+        
+        var chart = root.container.children.push(am5map.MapChart.new(root, {}));
+        
+        var polygonSeries = chart.series.push(
+          am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            exclude: ["AQ"]
+          })
+        );
+        
+        var bubbleSeries = chart.series.push(
+          am5map.MapPointSeries.new(root, {
+            valueField: "value",
+            calculateAggregates: true,
+            polygonIdField: "id"
+          })
+        );
+        
+        var circleTemplate = am5.Template.new({});
+        
+        bubbleSeries.bullets.push(function(root, series, dataItem) {
+          var container = am5.Container.new(root, {});
+          
+          let fillColorString = '0x' + (Math.round((100 - dataItem.dataContext.value) * 255 / 100)).toString(16).padStart(2,0) + (Math.round(dataItem.dataContext.value * 255 / 100)).toString(16).padStart(2,0) + '00';
+          
+          //let targetIp = $('#target').val();
+          //console.log(dataItem.dataContext.tooltipHTML);
+          //countryCodeToName(dataItem.dataContext.id);
+          var circle = container.children.push(
+            am5.Circle.new(root, {
+
+              radius: 10,
+              fillOpacity: 0.35,
+              //fill: dataItem.dataContext.aRecord == targetIp ? am5.color(0x00ff00) : am5.color(0xff0000),
+              fill: am5.color(Number(fillColorString)), //am5.color(0x00ff00),
+              cursorOverStyle: "pointer",
+              //tooltipText: (countryCodeToName(dataItem.dataContext.id))+ '-' + dataItem.dataContext.tooltipDetail + '[/]', //`{name}: [bold]{value}[/]`
+              //tooltipHTML: dataItem.dataContext.tooltipHTML.replace('COUNTRY_NAME', countryCodeToName(dataItem.dataContext.id))
+              tooltipHTML : getTooltipHtml(dataItem.dataContext),
+              //tooltipX: -50,
+              //tooltipY: 
+            }, circleTemplate)
+            
+          );
+          
+          circle.events.on('click', function(e){
+            //console.log(e.target.dataItem.dataContext.id);
+            e.target.root.tooltipContainer.events.on('', function(e){
+              getGridDataCountry(e.target.dataItem.dataContext.id);
+            });
+            getGridDataCountry(e.target.dataItem.dataContext.id);
+          });
+          //console.log(circle.getTooltip());
+          // circle.getTooltip().events.on('click', function(e){
+          //   //console.log(e.target.dataItem.dataContext.id);
+          //   getGridDataCountry(e.target.dataItem.dataContext.id);
+          // });
+        
+          var countryLabel = container.children.push(
+            
+            am5.Label.new(root, {
+              text: "{name}",
+              paddingLeft: 5,
+              populateText: true,
+              // fontWeight: "bold",
+              fontSize: 10,
+              centerY: am5.p50,
+              centerX: am5.p50,
+              dy: dataItem.dataContext.orderInList*15
+            })
+            
+          );
+
+          circle.on("radius", function(radius) {
+            countryLabel.set("x", radius);
+          })
+        
+          return am5.Bullet.new(root, {
+            sprite: container,
+            dynamic: true
+          });
+        });
+        
+        bubbleSeries.bullets.push(function(root, series, dataItem) {
+          return 
+          dataItem.dataContext.name.includes('not changed') ?
+          am5.Bullet.new(root, {
+            sprite: am5.Label.new(root, {
+              text: "{value.formatNumber('#.')}",
+              fill: am5.color(0xffffff),
+              populateText: true,
+              centerX: am5.p50,
+              centerY: am5.p50,
+              textAlign: "center"
+            }),
+            dynamic: true
+          })
+          :am5.Bullet.new(root, {
+            sprite: am5.Label.new(root, {
+              text: "{value.formatNumber('#.')}",
+              fill: am5.color(0xffffff),
+              populateText: true,
+              centerX: am5.p50,
+              centerY: am5.p50,
+              textAlign: "center"
+            }),
+            dynamic: true
+          });
+        });
+        
+    
+
+        //minValue and maxValue must be set for the animations to work
+        bubbleSeries.set("heatRules", [
+          {
+            target: circleTemplate,
+            dataField: "value",
+            min: 5,
+            max: 100,
+            minValue: 0,
+            maxValue: 1000,
+            key: "radius"
+          }
+        ]);
+
+        
+        const getTooltipHtml = (dataContext) => {
+          let userData = dataContext.userData;
+          let html = `
+          
+          <div class="circleTooltip">
+            
+          <h3>${countryCodeToName(dataContext.id)}</h3>
+          <table class="tooltipTable">
+            
+            <tr>
+              <th class="aRecord">A Record</th>
+              <th class="count">Count</th>
+            </tr>
+          `
+          for( let record in userData.a_records){
+            html += `
+            <tr>
+                <td class="aRecord">${userData.a_records[record]['a']}</td>
+                <td class="count">${userData.a_records[record]['count']}</td>
+            </tr>
+            `
+          }
+          html +=`
+          </table>
+          ${Math.round(userData.ok / (userData.ok + userData.not) * 1000) / 10}%, ${userData.ok} out of ${userData.ok + userData.not}
+          </div>
+
+          
+          `
+          return html;
+        }
+
+        const getResultApi = () => {
+          let host = $('#host').val();
+          let target = $('#target').val();
+          let countries = getCountries();
+          
+          if(countries == ''){
+            //alert('갱신요청 국가를 선택해주세요.');
+            return;
+          }
+          $.ajax({
+            url: `http://localhost:3000/looker/result/${host}/${target}?sessionId=${getSessionId()}&countries=${countries}`,
+            type: "GET",
+            //data: $("#my-form").serialize(),
+            dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+            success: function(data, status){
+              bubbleSeries.data.setAll(data);
+            }
+          });
+        }
+        $("input:radio[name='intervalCheck']").on('change', function(){
+            getResultApi(); 
+            let interval = $('input[name="intervalCheck"]:checked').val();
+            clearInterval(timer);
+            if(interval == 0) return;
+            timer = setInterval(function(){
+              getResultApi();
+              
+            }, interval);
+          
+        });
+        $("#sendGetResult").click(function(){
+          getResultApi();
+          
+        });
+
+        
+
+        const getCountries = () => {
+          let countries = [];
+          $('input[name="country"]:checked').each(function(){
+            countries.push($(this).val());
+          });
+
+          return countries.join(',');
+        }
+
+        $("#sendBatchAll").click(function(){          
+          let host = $('#host').val();
+          let countries = getCountries();
+
+          if(countries == ''){
+            alert('갱신요청 국가를 선택해주세요.');
+            return;
+          }
+
+          if(confirm('기존 데이터를 삭제할까요? 기존 데이터를 유지하려면 아니오를 선택해주세요.')){
+            sessionId = updateSessionId();
+          }
+
+          $.ajax({
+            
+            //url: (continent == 'ALL' ? `http://localhost:3000/batch/${host}` : `http://localhost:3000/batch/continent/${continent}/${host}`),
+            url: `http://localhost:3000/batch/${host}?sessionId=${getSessionId()}&countries=${countries}`,
+            type: "GET",
+            //data: $("#my-form").serialize(),
+            dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+            success: function(data, status){
+              //console.log(data);
+              if(typeof $("input:radio[name='intervalCheck']") == 'undefined'){
+                $("input[id='interval10'").prop("checked", true);
+              }
+            }
+          });
+          
+          
+        });
+
+        $("#sendBatchStop").click(function(){
+          let host = $('#host').val();
+          let continent = $("#continent").val();
+          if(confirm('서버에 실행 중인 모든 배치를 종료합니다.')){
+            
+            $.ajax({
+              url: `http://localhost:3000/batch/stop`,
+              type: "GET",
+              dataType: 'json', 
+              success: function(data, status){
+                //console.log(data);
+              }
+            });
+          }
+          
+        });
+
+        $("#sendBatchCountry").click(function(){
+          let host = $('#host').val();
+          let country = $('input[name="country_code"]:checked').val();
+          if(!country) return;
+          if(confirm('기존 데이터를 삭제할까요? ')){
+            sessionId = updateSessionId();
+            
+          }
+
+          $.ajax({
+              
+            url: `http://localhost:3000/batch/country/${country}/${host}?sessionId=${getSessionId()}`,
+            type: "GET",
+            //data: $("#my-form").serialize(),
+            dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+            success: function(data, status){
+              console.log(data);
+            }
+          });
+          
+        });
+        const getGridDataCountry = (country)=>{
+          let host = $('#host').val();
+          // let countries = getCountries();
+          
+          // if(countries == ''){
+          //   alert('국가를 선택해주세요.');
+          //   return;
+          // }
+          refreshData = country;
+          $.ajax({
+              
+              url: `http://localhost:3000/detail/${host}?sessionId=${getSessionId()}&countries=${country}`,
+              type: "GET",
+              dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+              success: function(data, status){
+                //onsole.log(data);
+                
+                drawGrid(data);
+                $('html,body').animate({scrollTop: $("#jsGrid").offset().top}, 'slow');
+              }
+            });
+        }
+
+        let refreshData = '';
+        const getGridData = ()=>{
+          let host = $('#host').val();
+          let countries = getCountries();
+          refreshData = countries;
+          if(countries == ''){
+            alert('국가를 선택해주세요.');
+            return;
+          }
+          $.ajax({
+              
+              url: `http://localhost:3000/detail/${host}?sessionId=${getSessionId()}&countries=${countries}`,
+              type: "GET",
+              dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+              success: function(data, status){
+                //console.log(data);
+                
+                drawGrid(data);
+                $('html,body').animate({scrollTop: $("#jsGrid").offset().top}, 'slow');
+              }
+            });
+        }
+        $("#gridData").click(function(){
+          getGridData();
+        });
+        $("#goToTop").click(function(){
+          $("html,body").animate({scrollTop:$("body").offset().top}, 'slow');
+        });
+        $("#gridContainer").hide();
+        //$("#gridRefresh").prop("display", "none");
+        $("#gridRefresh").click(function(){
+            getGridDataCountry(refreshData);//
+          });
+        const drawGrid = (data) => {
+          $("#gridContainer").show();
+          
+          $("#jsGrid").jsGrid({
+              width: "100%",
+              height: "100%",
+      
+              inserting: false,
+              editing: false,
+              sorting: true,
+              paging: false,
+      
+              data: data,
+      
+              fields: [
+                  { name: "as_org", type: "text", width: 100 },
+                  { name: "ip_address", type: "text", width: 50},
+                  { name: "a_record", type: "text", width: 50},
+                  { name: "country_code", type: "text", width: 50},
+                  { name: "city", type: "text", width: 50},
+                  { name: "name", type: "text", width: 100 },
+                  { name: "version", type: "text", width: 100},
+                  // { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
+                  // { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                  // { type: "control" }
+              ]
+          });
+        }
+
+        const countryCodeToName = (code) => {
+          //console.log(dataCountry.filter(item => item.country_code == code));
+          //console.log(dataCountry.filter(item => item.country_code == code)[0].country_name);
+          let filteredData = dataCountry.filter(item => item.country_code == code);
+          if(filteredData && filteredData.length > 0){
+            return filteredData[0].country_name;
+          }
+          return null;
+        }
+
+        let dataCountry = null;
+        const handleCommonCountry = (continent, country) => {
+          console.log({continent: continent, country: country});
+          dataCountry = country;
+          let html = `
+          <div id="checkboxControlContainer">
+            <button id="uncheckAll">모두 선택 해제</button>
+          </div>`;
+          let continentHtml = '';
+          let obj = null;
+          let continentEle = null;
+          let countryObj = null;
+          let countryEle = null;
+
+          continentHtml += `
+                
+                      
+
+            `
+
+          for( continentEle in continent ){
+            obj = continent[continentEle];
+
+            continentHtml += `
+                       <div class="continentBrief">
+                         <input type="checkbox" name="continentBrief" id="${obj.continent_code}_brief" value="${obj.continent_code}"/> 
+                         <label for="${obj.continent_code}_brief">${obj.continent_name}</label>
+                       </div>
+
+
+            `
+
+            html += `
+                     <div>
+                      <div class="continentContainer" data="${obj.continent_code}">
+                       <div class="domContinentContainer">
+                         <input type="checkbox" name="continent" id="${obj.continent_code}" value="${obj.continent_code}"/> 
+                         <label for="${obj.continent_code}">${obj.continent_name}</label>
+                       </div>
+                    
+                     <div class="subContinentContainer" data="${obj.continent_code}">
+                    `
+            for ( countryEle in country ) {
+              countryObj = country[countryEle];
+              if(countryObj.continent_code != obj.continent_code) continue;
+              html += `<div class="countryContainer">
+                         <input type="checkbox" data="${obj.continent_code}" name="country" id="country_${countryObj.country_code}" value="${countryObj.country_code}"/> 
+                         <label for="country_${countryObj.country_code}">${countryObj.country_name}</label>
+                       </div>
+                      `
+            }
+                        
+            html += ` </div>
+                    </div>
+                    
+                    `
+                    
+          } 
+          document.querySelector('#continentBriefContainer').innerHTML = continentHtml;
+          document.querySelector('#countryContainer').innerHTML = html;
+          
+          $('input[name="continent"],input[name="continentBrief"]').on('change', function(){
+              let continentCode = $(this).prop('value');
+              let isChecked = $(this).prop('checked');
+              //console.log(continentCode);
+              console.log($(`input[data="${continentCode}"]`));
+              $(`input[data="${continentCode}"]`).each(function(){
+                $(this).prop('checked', isChecked);
+              });
+          });
+
+          $('input[name="continent"]').on('change', function(){
+            let continentCode = $(this).prop('value');
+            let isChecked = $(this).prop('checked');
+            $('input[id="' + continentCode + '_brief"').prop('checked', isChecked);
+          });
+
+          $('input[name="continentBrief"]').on('change', function(){
+            let continentCode = $(this).prop('value');
+            let isChecked = $(this).prop('checked');
+            $('input[id="' + continentCode + '"').prop('checked', isChecked);
+          });
+
+          $("#uncheckAll").click(function(){
+            $('input[name="country"]:checked').each(function(){
+              $(this).prop("checked", false);
+            });
+
+            $('input[name="continent"]:checked').each(function(){
+              $(this).prop("checked", false);
+            });
+          });
+
+        }
+
+        
+
+        const callCommonCountry = (continent, callback) => {
+          $.ajax({
+              
+            url: `http://localhost:3000/common/country/`,
+            type: "GET",
+            //data: $("#my-form").serialize(),
+            dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+            success: function(data, status){
+              callback(continent, data);
+            }
+          });
+        }
+        const handleCommonContinent = (data, callback) => {
+          callback(data, handleCommonCountry);
+        }
+
+        $.ajax({
+              
+          url: `http://localhost:3000/common/continent/`,
+          type: "GET",
+          //data: $("#my-form").serialize(),
+          dataType: 'json', // lowercase is always preferered though jQuery does it, too.
+          success: function(data, status){
+            console.log(data);
+            handleCommonContinent(data, callCommonCountry);
+          }
+        });
+
+        // $("#continentAccordion").accordion({
+        //   collapsible: true,
+        //   heightStyle: "content"
+        // });
+        $("#countryAccordion").accordion({
+          //collapsible: true,
+          heightStyle: "content"
+        });
+      });
+
+    </script>
+
+  </head>
+  <body>
+    <div id="container">
+      
+
+      <!-- input parameters -->
+      <div id="parameters">
+        <div id="title">
+          <h1>Domain Propagation Watcher</h1>
+        </div>
+        <div id="parameterContainer">
+          <div id="textControlContainer">
+            <div class="textContainer">
+              <label for="host">Watching Domain</label>
+              <input type="text" class="text-center" name="host" id="host" value="www.hyundai.com" />
+            </div>
+            <div class="textContainer">
+              <label for="target">Watching IP</label>
+              <input type="text" class="text-center" name="target" id="target" value="34.111.55.4" />
+            </div>
+          </div>
+          
+        </div>
+        <div id="radioControlContainer">
+          <div class="radioContainer">
+            <input type="radio" name="intervalCheck" id="interval10" value="10000"/> 
+            <label for="interval10">10초마다 업데이트</label>
+          </div>
+          <div class="radioContainer">
+            <input type="radio" name="intervalCheck" id="interval5" value="5000" /> 
+            <label for="interval5">5초마다 업데이트</label>
+          </div>
+          <div class="radioContainer">
+            <input type="radio" name="intervalCheck" id="interval1"  value="1000"/> 
+            <label for="interval1">1초마다 업데이트</label>
+          </div>
+          <div class="radioContainer">
+            <input type="radio" name="intervalCheck" id="interval_no"  value="0"/> 
+            <label for="interval_no">업데이트 중지</label>
+          </div>
+        </div>
+        <div id="buttonControlContainer">
+          <button id="sendGetResult">Get DNS propagation Result</button>
+        </div>
+        <div id="controlContainer">
+          <div id="triggerContainer">
+            <button id="gridData">상세 데이터 확인하기</button>
+            <button id="sendBatchAll">DNS레코드 갱신 요청</button>  
+          </div>
+          
+        </div>
+      </div>
+
+      <div id="mapContainer">
+        <div id="chartdiv"></div>
+      </div>
+
+    </div>
+
+    <!-- control buttons -->
+    
+    
+    
+    <!-- country checkbox list-->
+    <div id="countryAccordion">
+      <h3>Continent List</h3>
+      <div id="continentBriefContainer"></div>
+      <h3>Full Country List</h3>
+      <div id="countryContainer"></div>
+    </div>
+    <!-- grid area -->
+    <div id="gridContainer">
+      <div id="gridControlContainer">
+        
+        <button id="gridRefresh">새로고침</button>
+      </div>
+      <div id="gridContentContainer">
+        <input type="text" style="display:none;" id="fakeText"/>
+        <div id="jsGrid"></div>
+        <div id="gridDetailInfo"></div>
+      </div>
+      <div id="goToTopContainer">
+        
+        <button id="goToTop">Move to the top</button>
+      </div>
+    </div>
+    
+  </body>
+</html>
