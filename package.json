@@ -1,19 +1,25 @@
 {
-  "name": "cdnengine",
+  "name": "hmg-cdn-esi-proxy",
   "version": "1.0.0",
-  "description": "http header information gathering for cdn migration",
+  "description": "Proxy for processing ESI",
   "main": "index.js",
-  "scripts": {
-    "start": "node ./dist/index.js",
-    "build": "tsc",
-    "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dns": "^0.2.2",
+    "@google-cloud/functions-framework": "^3.0.0",
+    "axios": "^1.4.0",
+    "esi": "^0.8.1",
     "express": "^4.17.1",
-    "mariadb": "^3.0.2"
+    "express-http-proxy": "^1.6.3",
+    "express-http-proxy-2": "^1.1.0",
+    "good-guy-http": "^1.14.0",
+    "http-proxy-middleware": "^2.0.6",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
+    "nodesi": "^1.17.0",
+    "vhost": "^3.0.2",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
   }
 }

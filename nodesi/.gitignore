@@ -1,0 +1,8 @@
+*.iml
+.idea
+.vscode
+node_modules
+npm-debug.log
+*.swp
+siege.log
+.nyc_output

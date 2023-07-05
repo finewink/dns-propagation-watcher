@@ -1,0 +1,60 @@
+const {createProxyMiddleware, responseInterceptor} = require('http-proxy-middleware');
+
+
+const clientKey = fs.readFileSync('./cert/ca.key');
+const clientCert = fs.readFileSync('./cert/ca.crt');
+const caCert = fs.readFileSync('./cert/ca.pass.key');
+
+function getProxyOption(path){
+    return {
+        target: path, //'https://org-dealers.kia.com' + path.path,
+        ssl:{
+            key: clientKey,
+            cert: clientCert,
+            ca: caCert,
+        },
+        changeOrigin: true,
+        secure:true,
+        /**
+         * IMPORTANT: avoid res.end being called automatically
+         **/
+        selfHandleResponse: true, // res.end() will be called internally by responseInterceptor()
+    
+        /**
+         * Intercept response and replace 'Hello' with 'Goodbye'
+         **/
+        on: {
+        proxyRes: responseInterceptor(async (responseBuffer, proxyRes, req, res) => {
+            const esiParser = ESI();
+            const response = responseBuffer.toString('utf8'); // convert buffer to string
+            return esiParser.process.bind({userReq:userReq})(response, null).then(data => {
+                    if(userReq.VARS){
+                        var DEALER_BUILD_PATH = userReq.VARS['DEALER_BUILD_PATH'];
+                        var BUILD_PATH = "";
+                        if(DEALER_BUILD_PATH && DEALER_BUILD_PATH != ""){ 
+                            BUILD_PATH = DEALER_BUILD_PATH; 
+                        } 
+                        else{ 
+                            BUILD_PATH = userReq.url; 
+                        } 
+                        // setCookie("buildPath", BUILD_PATH + ";path=/"); 
+                        userRes.cookie("buildPath", `${BUILD_PATH}; path=/`, { encode: (val) => {return val} });
+                        logger.debug(`Set-Cookie:buildPath=${BUILD_PATH}; path=/`);
+                    }
+            
+                    return data;
+                }).catch(err=> {
+                    logger.error(err);
+                    return response.replace("$add_header('Set-Cookie', $(BUILD_PATH))", "");;
+                });
+            }),
+        },
+  }
+}
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+
+for(let path of dealers){
+    app.use(path.path,  createProxyMiddleware(getProxyOption('https://org-dealers.kia.com' + path.path)));
+
+}
+app.use('/',  createProxyMiddleware(getProxyOption('https://eu-www.kia.com')));

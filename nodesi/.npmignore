@@ -1,0 +1,11 @@
+*.iml
+.idea
+node_modules
+npm-debug.log
+*.swp
+siege.log
+.nyc_output
+perf
+test
+.jshintrc
+.travis.yml

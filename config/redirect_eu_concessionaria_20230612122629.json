@@ -1,0 +1,224 @@
+[
+    {
+      "path": "/it/zeuscar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/zeuscar/usato/ricerca-kia-usato/#/dealer_121671_Zeus_Car_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/tamburini/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/tamburini/usato/ricerca-kia-usato/#/dealer_121660_TAMBURINI_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/sina/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/sina/usato/ricerca-kia-usato/#/dealer_121656_Sina_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/sevencar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/sevencar/usato/ricerca-kia-usato/#/dealer_121654_Seven_Car_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/scar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/scar/usato/ricerca-kia-usato/#/dealer_121645_SCAR_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/ruggeri/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/ruggeri/usato/ricerca-kia-usato/#/dealer_121644_Ruggeri_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/pasquarelliauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/pasquarelliauto/usato/ricerca-kia-usato/#/dealer_121628_Pasquarelli-Auto_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/motork/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/motork/usato/ricerca-kia-usato/#/dealer_123266_Motor_France_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/miauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/miauto/usato/ricerca-kia-usato/#/dealer_121609_MI_Auto_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/martignoniauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/martignoniauto/usato/ricerca-kia-usato/#/dealer_121601_MARTIGNONIAUTO_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/magicar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/magicar/usato/ricerca-kia-usato/#/dealer_121594_MAGICAR_-_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/start/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/start/usato/ricerca-kia-usato/#/dealer_121589_LOGICA_S.p.A./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/laspinaauto2/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/laspinaauto2/usato/ricerca-kia-usato/#/dealer_121582_LA_SPINA_AUTO_2_S.r.l/searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/sca/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/sca/usato/ricerca-kia-usato/#/dealer_121581_Kia_Motors_S.C.A/searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/gruppobossoni/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/gruppobossoni/usato/ricerca-kia-usato/#/dealer_121573_Gruppo_Bossoni_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/grandprix/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/grandprix/usato/ricerca-kia-usato/#/dealer_121568_GRAND_PRIX_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/gtauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/gtauto/usato/ricerca-kia-usato/#/dealer_121574_G.T._AUTO_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/florencecar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/florencecar/usato/ricerca-kia-usato/#/dealer_123249_FLORENCE_CAR_Srl/searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/ferriauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/ferriauto/usato/ricerca-kia-usato/#/dealer_121552_FERRI_AUTO_SpA/searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/fllinovara/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/fllinovara/usato/ricerca-kia-usato/#/dealer_121560_F.LLI_NOVARA_S.R.L./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/euromotor/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/euromotor/usato/ricerca-kia-usato/#/dealer_121543_EUROMOTOR_AUTOMOBILI_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/ercolaniauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/ercolaniauto/usato/ricerca-kia-usato/#/dealer_121537_ERCOLANI_AUTO_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/debonamotors/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/debonamotors/usato/ricerca-kia-usato/#/dealer_121533_DE_BONA_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/conerocar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/conerocar/usato/ricerca-kia-usato/#/dealer_121531_CONERO_CAR_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/clericiauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/clericiauto/usato/ricerca-kia-usato/#/dealer_121519_CLERICI_AUTO_S.p.A./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/ceccatoautomobili/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/ceccatoautomobili/usato/ricerca-kia-usato/#/dealer_123166_CECCATO_AUTOMOBILI_S.p.A./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/casalcar/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/casalcar/usato/ricerca-kia-usato/#/dealer_121502_CASAL_CAR_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/carlisi/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/carlisi/usato/ricerca-kia-usato/#/dealer_121506_CAR_LISI_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/buratti/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/buratti/usato/ricerca-kia-usato/#/dealer_121499_BURATTI_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/baccimotors/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/baccimotors/usato/ricerca-kia-usato/#/dealer_121489_BACCI_MOTORS_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/autotorino/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/autotorino/usato/ricerca-kia-usato/#/dealer_121480_AUTOTORINO_S.p.A./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/autoteam/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/autoteam/usato/ricerca-kia-usato/#/dealer_121476_AUTOTEAM_Srl/searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/automotogiovane/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/automotogiovane/usato/ricerca-kia-usato/#/dealer_121466_Automoto_Giovane_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/autolidotre/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/autolidotre/usato/ricerca-kia-usato/#/dealer_121461_Autolidotre_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/autodrive/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/autodrive/usato/ricerca-kia-usato/#/dealer_121456_AUTODRIVE_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/autogrifone/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/autogrifone/usato/ricerca-kia-usato/#/dealer_121459_AUTO_GRIFONE_S.r.l./searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    },
+    {
+      "path": "/it/gierreauto/usato/ricerca-kia-usato-nuovo/",
+      "redirectURL": "https://concessionaria.kia.com/it/gierreauto/usato/ricerca-kia-usato/#/dealer_121441_A.GIERRE_AUTO_Srl/searchresults",
+      "statusCode": "301",
+      "queryString": ""
+    }
+  ]
